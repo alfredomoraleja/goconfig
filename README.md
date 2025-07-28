@@ -15,7 +15,7 @@ configuration straightforward while keeping your code idiomatic.
 
 - Unified configuration from flags, environment variables and JSON files
 - Hierarchical keys using struct fields
-- Supports arrays and most native flag types
+- Supports arrays, `time.Duration`, and most native flag types
 - Auto-generated `-help` with usage information
 
 ## Installation
@@ -98,7 +98,8 @@ nested structs:
 - struct (hierarchical keys)
 - array (any type)
 
-The `time.Duration` type is currently not supported.
+The `time.Duration` type is fully supported and can be provided as a
+duration string (e.g. `"15s"`) or as nanoseconds.
 
 ## Built-in Flags
 
@@ -124,8 +125,8 @@ a sample `config.json` looks like:
 
 Configuration precedence (highest to lowest):
 1. Command line arguments
-2. JSON config file
-3. Environment variables
+2. Environment variables
+3. JSON config file
 4. Default values
 
 ## Contributing
